@@ -27,8 +27,8 @@
                 </div>
                 <div class="thumbsnails">
                     <!-- VADO A CICLARE LE THUMB -->
-                    <template v-for="preview in cards">
-                        <img :src="preview.image" class="thumb" alt="x">
+                    <template v-for="(preview,index) in cards">
+                        <img :src="preview.image" :class="getClasses(index)" alt="x">
                     </template>
                 </div>
                 

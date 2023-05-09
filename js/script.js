@@ -35,15 +35,32 @@ createApp({
         }
     },
     methods: {
-        // Function per forward con ciclo infinito
+        // Function per backward con ciclo infinito
         prevSlide() {
             this.currentSlide--;
-        },
-        nextSlide() {
-            if (currentSlide > cards.lenght -1) {
-                currentSlide == 0;
+            if(this.currentSlide<0) {
+                this.currentSlide = this.cards.length - 1;
             }
+        },
+        // Function per forward con ciclo infinito
+        nextSlide() {
+            if (this.currentSlide == this.cards.length - 1) {
+                this.currentSlide = 0;
+            }
+            else {
             this.currentSlide++;
+            }
+        },
+        // Aggiungere classi all'activate
+        getClasses(index) {
+            let classes = "thumb"; {
+                if (index == this.currentSlide) {
+                    classes += " active"
+                } 
+                return classes;
+            }
+
+
         }
     }
 }).mount("#app")
